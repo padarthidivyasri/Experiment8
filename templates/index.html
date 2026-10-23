@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Experiment 8: Cookies and HTTP Sessions</title>
+  </head>
+  <body>
+    <h1>Welcome to the website!</h1>
+
+    {% if user_language %}
+      <p>Your preferred language is: {{ user_language }}</p>
+    {% else %}
+      <p>Your language preference is not set.</p>
+    {% endif %}
+    <p><a href="{{ url_for('set_language', language='en') }}">Set language to English</a></p>
+    <p><a href="{{ url_for('set_language', language='es') }}">Set language to Spanish</a></p>
+
+    <h2>HTTP session</h2>
+    <p>This is your visit number: {{ visit_count }}</p>
+    <p><a href="{{ url_for('reset_session') }}">Reset visit count</a></p>
+  </body>
+</html>
